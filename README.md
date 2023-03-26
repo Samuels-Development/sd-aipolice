@@ -179,3 +179,7 @@ end)
 
 Now you're done and ready to run from some cops!
 
+# Example Usage
+
+TriggerEvent('phade-aipolice:client:ApplyWantedLevel', level) -- level being 1-5
+
