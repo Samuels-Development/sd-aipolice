@@ -6,7 +6,7 @@ If you have any improvement ideas/issues etc. Please create a PR Request/Issue o
 # Credits
 
 This script was created in large-part by phade#9756. Bag yourself some, quite frankly, amazing resources, by checking out his store @ https://phades-development.tebex.io/ or his discord @ https://discord.gg/Dh8E37Xt3t  
-A couple touch-ups were made by me. :)
+A couple touch-ups were made by me @ https://discord.gg/samueldev / https://fivem.samueldev.shop
 
 
 # Installation
