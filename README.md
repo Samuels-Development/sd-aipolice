@@ -5,7 +5,7 @@ If you have any improvement ideas/issues etc. Please create a PR Request/Issue o
 # Export
 
 ```lua
-exports('ApplyWantedLevel', ApplyWantedLevel -- 1-5)
+exports['sd-aipolice']:ApplyWantedLevel(--1 to 5)
 ```
 
 # Credits
