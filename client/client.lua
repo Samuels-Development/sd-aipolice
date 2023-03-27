@@ -18,6 +18,8 @@ function ApplyWantedLevel(level)
 	end)
 end
 
+exports('ApplyWantedLevel', ApplyWantedLevel)
+
 
 if Config.PoliceEventHandlers ~= nil then
     for k, v in pairs(Config.PoliceEventHandlers) do
