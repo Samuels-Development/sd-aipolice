@@ -1,5 +1,7 @@
 This resource is fairly basic. Essentially, you can add an event to your scripts, that will add a specified amount of 'Wanted Stars' like in normal GTA. Police etc. will then pursue the player till he loses them.
 
+If you have any improvement ideas/issues etc. Please create a PR Request/Issue on this Repo.
+
 
 # Credits
 
