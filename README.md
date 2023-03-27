@@ -13,7 +13,7 @@ A couple touch-ups were made by me @ https://discord.gg/samueldev / https://five
 
 1.) First you want to go to qb-smallresources/config.lua and find the following:
 
-```ruby
+```lua
 Config.BlacklistedPeds = {
     [`s_m_y_ranger_01`] = true,
     [`s_m_y_sheriff_01`] = true,
