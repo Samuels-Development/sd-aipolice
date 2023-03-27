@@ -2,6 +2,9 @@ This resource is fairly basic. Essentially, you can add an event to your scripts
 
 If you have any improvement ideas/issues etc. Please create a PR Request/Issue on this Repo.
 
+# Export
+
+exports('ApplyWantedLevel', ApplyWantedLevel -- 1-5)
 
 # Credits
 
@@ -180,8 +183,4 @@ end)
 
 
 Now you're done and ready to run from some cops!
-
-# Example Usage
-
-TriggerEvent('phade-aipolice:client:ApplyWantedLevel', level) -- level being 1-5
 
