@@ -26,7 +26,7 @@ Config.BlacklistedPeds = {
 
 You can either remove these entires entirely or set them all to false to look like this:
 
-```ruby
+```lua
 Config.BlacklistedPeds = {
     [`s_m_y_ranger_01`] = false,
     [`s_m_y_sheriff_01`] = false,
@@ -39,7 +39,7 @@ Config.BlacklistedPeds = {
 
 2.) Go to qb-smallresources/client/ignore.lua and find the following:
 
-```ruby
+```lua
 CreateThread(function()
 	for dispatchService, enabled in pairs(Config.DispatchServices) do
 		EnableDispatchService(dispatchService, enabled)
@@ -58,7 +58,7 @@ You'll want to comment out the entire code block, by using --[[ code ]]-- or by 
 
 3.) In the same file, find the following:
 
-```ruby
+```lua
 CreateThread(function() -- all these should only need to be called once
 	if Config.DisableAmbience then
 		StartAudioScene("CHARACTER_CHANGE_IN_SKY_SCENE")
@@ -83,7 +83,7 @@ end)
 
 You are going to want to comment out everything below the if Config.DisableAmbience block, so like this below:
 
-```ruby
+```lua
 CreateThread(function() -- all these should only need to be called once
 	if Config.DisableAmbience then
 		StartAudioScene("CHARACTER_CHANGE_IN_SKY_SCENE")
@@ -108,7 +108,7 @@ end)
 
 4.) Head back over to the qb-smallresources/config.lua and find the following:
 
-```ruby
+```lua
 Config.Disable = {
     disableHudComponents = {1, 2, 3, 4, 7, 9, 13, 14, 19, 20, 21, 22}, -- Hud Components: https://docs.fivem.net/natives/?_0x6806C51AD12B83B8
     disableControls = {37}, -- Controls: https://docs.fivem.net/docs/game-references/controls/
@@ -118,13 +118,13 @@ Config.Disable = {
 
 We are going to want to remove the '1' from disableHudComponents, so it should look like this:
 
-```ruby
+```lua
 disableHudComponents = {2, 3, 4, 7, 9, 13, 14, 19, 20, 21, 22},
 ```
 
 5.) Now you're going to want to go to qb-smallresources/client/hudcomponents.lua and add the following to the top of the file:
 
-```ruby
+```lua
 local copsOnline = false
  
 RegisterNetEvent('qb-smallresources:client:CopsOnline', function()
@@ -146,7 +146,7 @@ end
 
 When you're done, it should look like this:
 
-```ruby
+```lua
 CreateThread(function()
     while true do
 
