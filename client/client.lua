@@ -61,7 +61,7 @@ RegisterNetEvent('phade-aipolice:client:SetCopsOffline', function()
     SetCreateRandomCops(true)
     SetCreateRandomCopsNotOnScenarios(true)
     SetCreateRandomCopsOnScenarios(true)
-    DistantCopCarSirens(true)
+    DistantCopCarSirens(false)
 
     for k, v in pairs(Config.DispatchTypes) do
         if Config.DispatchTypes[k].enabled then
