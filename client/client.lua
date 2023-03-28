@@ -37,12 +37,12 @@ RegisterNetEvent('phade-aipolice:refresh', function(amountCops)
         setCopsOnline = true
         setCopsOffline = false
         TriggerEvent('qb-smallresources:client:CopsOnline')
-        -- TriggerEvent('phade-aipolice:client:SetCopsOnline')
+        TriggerEvent('phade-aipolice:client:SetCopsOnline')
     elseif amountCops == 0 and not setCopsOffline then
         setCopsOffline = true
         setCopsOnline = false
         TriggerEvent('phade-aipolice:client:SetCopsOffline')
-        -- TriggerEvent('qb-smallresources:client:CopsOffline')
+        TriggerEvent('qb-smallresources:client:CopsOffline')
     end
 end)
 
@@ -64,10 +64,10 @@ RegisterNetEvent('phade-aipolice:client:SetCopsOffline', function()
     DistantCopCarSirens(false)
 
     for k, v in pairs(Config.DispatchTypes) do
-        if Config.DispatchTypes[k].enabled then
-            EnableDispatchService(k, true)
-        elseif not Config.DispatchTypes[k].enabled then
-            EnableDispatchService(k, false)
+        if v.enable then
+            EnableDispatchService(v.dispatchType, true)
+        else
+            EnableDispatchService(v.dispatchType, false)
         end
     end
  
