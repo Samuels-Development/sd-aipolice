@@ -29,30 +29,16 @@ if Config.PoliceEventHandlers ~= nil then
     end
 end
 
-CreateThread(function()
-    Wait(1000)
-    while true do
-        if LocalPlayer.state.isLoggedIn then
-            local amountCops = 0
-            QBCore.Functions.TriggerCallback("phade-aipolice:server:GetCops", function(amount)  
-                if amount then 
-                    amountCops = amount
-                    if amountCops > 0 and not setCopsOnline then
-                        setCopsOnline = true
-                        setCopsOffline = false
-                        TriggerEvent('qb-smallresources:client:CopsOnline')
-                    elseif amountCops == 0 and not setCopsOffline then
-                        setCopsOffline = true
-                        setCopsOnline = false
-                        TriggerEvent('qb-smallresources:client:CopsOffline')
-                    end
-                else
-                    print('Failed Cop update', 'error')
-                end
-            end)
- 
-        end
-        Wait(1000)
+-- Added:
+RegisterNetEvent('phade-aipolice:refresh', function(amountCops)
+    if amountCops > 0 and not setCopsOnline then
+        setCopsOnline = true
+        setCopsOffline = false
+        TriggerEvent('qb-smallresources:client:CopsOnline')
+    elseif amountCops == 0 and not setCopsOffline then
+        setCopsOffline = true
+        setCopsOnline = false
+        TriggerEvent('qb-smallresources:client:CopsOffline')
     end
 end)
 
@@ -108,4 +94,6 @@ RegisterNetEvent('phade-aipolice:client:SetCopsOnline', function()
         RemoveVehiclesFromGeneratorsInArea(-724.46 - 300.0, -1444.03 - 300.0, 5.0 - 300.0, -724.46 + 300.0, -1444.03 + 300.0, 5.0 + 300.0) 
     end
 end)
+
+
 
