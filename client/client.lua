@@ -4,22 +4,25 @@ local setCopsOnline = false
 local setCopsOffline = false
 
 function ApplyWantedLevel(level)
-	Citizen.CreateThread(function()
-	  local wantedLevel = GetPlayerWantedLevel(PlayerId())
-	  local newWanted = wantedLevel + level
-      if newWanted > Config.MaxWantedLevel then
-        newWanted = Config.MaxWantedLevel 
-      end
-	  ClearPlayerWantedLevel(PlayerId())
-	  SetPlayerWantedLevelNow(PlayerId(),false)
-	  Citizen.Wait(10)
-	  SetPlayerWantedLevel(PlayerId(),newWanted,false)
-	  SetPlayerWantedLevelNow(PlayerId(),false)
-	end)
+    Citizen.CreateThread(function()
+        QBCore.Functions.TriggerCallback("phade-aipolice:server:GetCops", function(copCount)  
+            if copCount == 0 then 
+                local wantedLevel = GetPlayerWantedLevel(PlayerId())
+                local newWanted = wantedLevel + level
+                if newWanted > Config.MaxWantedLevel then
+                    newWanted = Config.MaxWantedLevel 
+                end
+                ClearPlayerWantedLevel(PlayerId())
+                SetPlayerWantedLevelNow(PlayerId(),false)
+                Citizen.Wait(10)
+                SetPlayerWantedLevel(PlayerId(),newWanted,false)
+                SetPlayerWantedLevelNow(PlayerId(),false)
+            end
+        end)
+    end)
 end
 
 exports('ApplyWantedLevel', ApplyWantedLevel)
-
 
 if Config.PoliceEventHandlers ~= nil then
     for k, v in pairs(Config.PoliceEventHandlers) do
@@ -29,15 +32,16 @@ if Config.PoliceEventHandlers ~= nil then
     end
 end
 
--- Added:
 RegisterNetEvent('phade-aipolice:refresh', function(amountCops)
     if amountCops > 0 and not setCopsOnline then
         setCopsOnline = true
         setCopsOffline = false
         TriggerEvent('qb-smallresources:client:CopsOnline')
+        TriggerEvent('phade-aipolice:client:SetCopsOnline')
     elseif amountCops == 0 and not setCopsOffline then
         setCopsOffline = true
         setCopsOnline = false
+        TriggerEvent('phade-aipolice:client:SetCopsOffline')
         TriggerEvent('qb-smallresources:client:CopsOffline')
     end
 end)
@@ -57,7 +61,7 @@ RegisterNetEvent('phade-aipolice:client:SetCopsOffline', function()
     SetCreateRandomCops(true)
     SetCreateRandomCopsNotOnScenarios(true)
     SetCreateRandomCopsOnScenarios(true)
-    DistantCopCarSirens(false)
+    DistantCopCarSirens(true)
 
     for k, v in pairs(Config.DispatchTypes) do
         if Config.DispatchTypes[k].enabled then
@@ -94,6 +98,8 @@ RegisterNetEvent('phade-aipolice:client:SetCopsOnline', function()
         RemoveVehiclesFromGeneratorsInArea(-724.46 - 300.0, -1444.03 - 300.0, 5.0 - 300.0, -724.46 + 300.0, -1444.03 + 300.0, 5.0 + 300.0) 
     end
 end)
+
+
 
 
 
