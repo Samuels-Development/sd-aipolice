@@ -37,12 +37,12 @@ RegisterNetEvent('phade-aipolice:refresh', function(amountCops)
         setCopsOnline = true
         setCopsOffline = false
         TriggerEvent('qb-smallresources:client:CopsOnline')
-        TriggerEvent('phade-aipolice:client:SetCopsOnline')
+        -- TriggerEvent('phade-aipolice:client:SetCopsOnline')
     elseif amountCops == 0 and not setCopsOffline then
         setCopsOffline = true
         setCopsOnline = false
         TriggerEvent('phade-aipolice:client:SetCopsOffline')
-        TriggerEvent('qb-smallresources:client:CopsOffline')
+        -- TriggerEvent('qb-smallresources:client:CopsOffline')
     end
 end)
 
