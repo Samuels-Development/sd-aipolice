@@ -49,7 +49,7 @@ Config.BlacklistedPeds = {
 }
 ```
 
-2.) Go to qb-smallresources/client/ignore.lua and find the following:
+2.) Go to qb-smallresources/client/ignore.lua and find the following: (Note: This part of qb-smallresources was edited/added in December 2022, so it might be different for you)
 
 ```lua
 CreateThread(function()
