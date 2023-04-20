@@ -4,6 +4,15 @@ Config.MaxWantedLevel = 5
 
 Config.RemoveVehicleGenerators = true --Remove PD vehicle generators when pd go online
 
+Config.EnablePursitOnlyVehicleOccurence = true
+Config.PursiutCarModulo = 3  -- Some cop cars will ONLY chase and ram the suspect(policemen will not exit the vehicle and shoot), 
+                             -- this value modifies the occurrence by way of vehicleId modulo. 
+                             -- Putting it plainly, if:
+                             -- PursiutCarModulo = 1: 100%(1/1) of cop cars will ONLY do pursuit
+                             -- PursiutCarModulo = 2: 50%(1/2) of cop cars will ONLY do pursuit
+                             -- PursiutCarModulo = 3: 33%(1/3) of cop cars will ONLY do pursuit
+                             -- PursiutCarModulo = 100: 1%(1/100) of cop cars will ONLY do pursuit
+
 Config.PoliceJobs = {
     [1] = {
         job = 'police',
