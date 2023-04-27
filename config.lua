@@ -31,15 +31,16 @@ Config.PoliceJobs = {
 --To trigger it you can use this event: or the event handler below
 --TriggerEvent('phade-aipolice:client:ApplyWantedLevel', level)
 
+-- The Export is recommended over this, eventhandlers will not always work.
 Config.PoliceEventHandlers = {
-    [1] = {
-        event = 'electronickit:UseElectronickit',
-        wantedLevel = 4,
-    },
-    [2] = {
-        event = 'lockpicks:UseLockpick',
-        wantedLevel = 2,
-    },
+   -- [1] = {
+    --    event = 'electronickit:UseElectronickit',
+   --     wantedLevel = 4,
+   -- },
+   -- [2] = {
+   --     event = 'lockpicks:UseLockpick',
+    --    wantedLevel = 2,
+   -- },
 }
 
 Config.DispatchTypes = {
