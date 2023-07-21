@@ -18,7 +18,7 @@ function ApplyWantedLevel(level)
                 Citizen.Wait(10)
                 SetPlayerWantedLevel(PlayerId(),newWanted,false)
                 SetPlayerWantedLevelNow(PlayerId(),false)
-                local playerVehicle = GetVehiclePedIsIn(PlayerId(), true)
+                local playerVehicle = GetVehiclePedIsIn(PlayerPedId(), true)
                 if playerVehicle ~= 0 then
                     SetVehicleIsWanted(playerVehicle, true)
                 end
