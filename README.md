@@ -12,7 +12,7 @@ If you have any improvement ideas/issues etc. Please create a PR Request/Issue o
 exports['sd-aipolice']:ApplyWantedLevel(--1 to 5)
 ```
 
-You can also use the event-handler in the resource, example in the Config.
+You can also use the event-handler in the resource, example in the Config. (Although this is not recommend and might lead to not safe for net errors)
 
 # Credits
 
